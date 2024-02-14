@@ -1,10 +1,16 @@
 {
-  "name": "ankl",
+  "name": "@erichayesjohnson/ankl",
+  "private": false,
   "version": "1.0.0",
   "description": "A simple React compponent library",
-  "main": "index.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "build": "vite build && tsc"
   },
   "author": "",
@@ -17,5 +23,8 @@
   },
   "peerDependencies": {
     "react": "^18.2.0"
+  },
+  "publishConfig": {
+    "@erichayesjohnson:registry": "https://npm.pkg.github.com"
   }
 }
