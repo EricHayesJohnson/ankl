@@ -6,8 +6,6 @@ import * as Button from "./Button.stories.tsx";
 
 # Button
 
-Button component with different props.
-
 #### Example
 
 <Canvas of={Button.Primary} />
@@ -15,15 +13,15 @@ Button component with different props.
 ## Usage
 
 ```ts
-import {Button} from "sld-ui";
+import { Button } from "@erichayesjohnson/ankl";
 
 const Example = () => {
   return (
       <Button
-        size={"small"}
-        text={"Button"}
-        onClick={()=> console.log("Clicked")}
-        primary
+        size="sm"
+        text="Button"
+        onClick={()=> console.log("clicked")}
+        variant="primary"
       />
   );
 };
@@ -31,10 +29,37 @@ const Example = () => {
 export default Example;
 ```
 
+```ts
+import { Button } from "@erichayesjohnson/ankl";
+
+const ExampleWithStyleOverrides = () => {
+  return (
+      <Button
+        size="md"
+        text="Button"
+        onClick={()=> console.log("clicked")}
+        variant="secondary"
+        styles: {
+          ...{
+            backgroundColor: "pink",
+            borderWidth: "3px",
+            "&:hover": {
+             backgroundColor: "lightgreen",
+            },
+          },
+        },
+      />
+  );
+};
+
+export default ExampleWithStyleOverrides;
+```
+
 #### Arguments
 
-- **text** _`() => void`_ - A string that represents the text content of the button.
-- **primary** - A boolean indicating whether the button should have a primary styling or not. Typically, a primary button stands out as the main action in a user interface.
-- **disabled** - A boolean indicating whether the button should be disabled or not. When disabled, the button cannot be clicked or interacted with.
-- **size** - A string with one of three possible values: "small," "medium," or "large." It defines the size or dimensions of the button.
+- **text** - A string that represents the text content of the button.
+- **variant** - A string of either "primary" or "secondary", "primary being the default.
+- **disabled** - A boolean indicating whether the button should be disabled or not.
+- **size** - A string with one of three possible values: "sm," "md," or "lg." It defines the size or dimensions of the button.
 - **onClick** - A function that is called when the button is clicked. It receives a MouseEventHandler for handling the click event on the button element.
+- **styles** - A CSS style object. Custom style overrides that can be applied to the button.
